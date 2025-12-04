@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "tsx watch ./src/index.ts",
-    "build": "tsc -p tsconfig.json",
+    "migrate": "prisma migrate dev",
+    "generate": "prisma generate && prisma db push",
+    "build": "pnpm migrate && pnpm generate && tsc -p tsconfig.json",
     "start": "node dist/index.js"
   },
   "keywords": [],
